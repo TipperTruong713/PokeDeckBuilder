@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Deck Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="decks.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link active">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Deck Editor Container -->
+    <div class="deck-editor-container">
+        <!-- Deck Header -->
+        <div class="editor-header">
+            <div class="deck-info">
+                <input type="text" class="deck-name-input" value="Fire/Dragon" placeholder="Deck Name">
+                <select class="deck-type-select">
+                    <option value="standard">Standard</option>
+                    <option value="expanded">Expanded</option>
+                    <option value="theme">Theme</option>
+                </select>
+            </div>
+            <div class="deck-actions">
+                <button class="save-deck-btn">Save Deck</button>
+                <a href="mydecks.html" class="cancel-btn">Cancel</a>
+            </div>
+        </div>
+
+        <!-- Deck Stats Bar -->
+        <div class="deck-stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Total Cards</span>
+                <span class="stat-value" id="total-cards">60/60</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Pokemon</span>
+                <span class="stat-value" id="pokemon-count">18</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Trainers</span>
+                <span class="stat-value" id="trainer-count">30</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Energy</span>
+                <span class="stat-value" id="energy-count">12</span>
+            </div>
+        </div>
+
+        <div class="editor-content">
+            <!-- Left Panel - Collection -->
+            <div class="collection-panel">
+                <h2>Your Collection</h2>
+                <div class="collection-filters">
+                    <input type="text" placeholder="Search cards..." class="search-input">
+                    <select class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="pokemon">Pokemon</option>
+                        <option value="trainer">Trainer</option>
+                        <option value="energy">Energy</option>
+                    </select>
+                </div>
+                <div class="collection-cards">
+                    <!-- Collection Card -->
+                    <div class="collection-card-item" draggable="true">
+                        <img src="placeholder-card-small.jpg" alt="Charizard">
+                        <div class="card-details">
+                            <h4>Charizard</h4>
+                            <p>Fire - Stage 2</p>
+                            <span class="available-qty">Available: 3</span>
+                        </div>
+                        <button class="add-card-btn">+</button>
+                    </div>
+                    <!-- Collection Card -->
+                    <div class="collection-card-item" draggable="true">
+                        <img src="placeholder-card-small.jpg" alt="Charmeleon">
+                        <div class="card-details">
+                            <h4>Charmeleon</h4>
+                            <p>Fire - Stage 1</p>
+                            <span class="available-qty">Available: 4</span>
+                        </div>
+                        <button class="add-card-btn">+</button>
+                    </div>
+                    <!-- Collection Card -->
+                    <div class="collection-card-item" draggable="true">
+                        <img src="placeholder-card-small.jpg" alt="Charmander">
+                        <div class="card-details">
+                            <h4>Charmander</h4>
+                            <p>Fire - Basic</p>
+                            <span class="available-qty">Available: 6</span>
+                        </div>
+                        <button class="add-card-btn">+</button>
+                    </div>
+                    <!-- Collection Card -->
+                    <div class="collection-card-item" draggable="true">
+                        <img src="placeholder-card-small.jpg" alt="Professor Oak">
+                        <div class="card-details">
+                            <h4>Professor Oak</h4>
+                            <p>Trainer - Supporter</p>
+                            <span class="available-qty">Available: 4</span>
+                        </div>
+                        <button class="add-card-btn">+</button>
+                    </div>
+                    <!-- Collection Card -->
+                    <div class="collection-card-item" draggable="true">
+                        <img src="placeholder-card-small.jpg" alt="Fire Energy">
+                        <div class="card-details">
+                            <h4>Fire Energy</h4>
+                            <p>Energy - Basic</p>
+                            <span class="available-qty">Available: 20</span>
+                        </div>
+                        <button class="add-card-btn">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Current Deck -->
+            <div class="deck-panel">
+                <h2>Current Deck</h2>
+                <textarea class="deck-description" placeholder="Deck description...">This is a Fire and Dragon type deck.</textarea>
+                
+                <!-- Pokemon Section -->
+                <div class="deck-section">
+                    <h3>Pokemon (18)</h3>
+                    <div class="deck-cards">
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Charizard">
+                            <div class="card-details">
+                                <h4>Charizard</h4>
+                                <p>Fire - Stage 2</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">2</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Charmeleon">
+                            <div class="card-details">
+                                <h4>Charmeleon</h4>
+                                <p>Fire - Stage 1</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">3</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Charmander">
+                            <div class="card-details">
+                                <h4>Charmander</h4>
+                                <p>Fire - Basic</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">4</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainers Section -->
+                <div class="deck-section">
+                    <h3>Trainers (30)</h3>
+                    <div class="deck-cards">
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Professor Oak">
+                            <div class="card-details">
+                                <h4>Professor Oak</h4>
+                                <p>Trainer - Supporter</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">4</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Pokeball">
+                            <div class="card-details">
+                                <h4>Pokeball</h4>
+                                <p>Trainer - Item</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">4</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy Section -->
+                <div class="deck-section">
+                    <h3>Energy (12)</h3>
+                    <div class="deck-cards">
+                        <div class="deck-card-item">
+                            <img src="placeholder-card-small.jpg" alt="Fire Energy">
+                            <div class="card-details">
+                                <h4>Fire Energy</h4>
+                                <p>Energy - Basic</p>
+                            </div>
+                            <div class="quantity-control">
+                                <button class="qty-btn">-</button>
+                                <span class="qty">12</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

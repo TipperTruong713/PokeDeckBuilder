@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - My Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link active">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collection Container -->
+    <div class="cards-container">
+        <div class="cards-header">
+            <h1>My Collection</h1>
+            <p>Manage your personal card collection</p>
+        </div>
+        <!-- Collection Stats -->
+        <div class="collection-stats">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Total Cards</h3>
+                    <p class="stat-number">230</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Unique Cards</h3>
+                    <p class="stat-number">52</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Rare Cards</h3>
+                    <p class="stat-number">36</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Ultra Rare</h3>
+                    <p class="stat-number">15</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="collection-type">Card Type</label>
+                <select id="collection-type">
+                    <option value="">All Types</option>
+                    <option value="pokemon">Pokemon</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="collection-rarity">Rarity</label>
+                <select id="collection-rarity">
+                    <option value="">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="ultra-rare">Ultra Rare</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="sort-by">Sort By</label>
+                <select id="sort-by">
+                    <option value="name">Name</option>
+                    <option value="quantity">Quantity</option>
+                    <option value="rarity">Rarity</option>
+                    <option value="type">Type</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input type="text" id="search-collection" placeholder="Search your collection...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Collection Grid -->
+        <div class="cards-grid">
+            <!-- Collection Card Item -->
+            <div class="card-item collection-card">
+                <div class="card-image">
+                    <img src="charizard.jpg" alt="Charizard">
+                    <span class="card-rarity rare">Rare</span>
+                    <span class="card-quantity">x1</span>
+                </div>
+                <div class="card-info">
+                    <h3>Charizard</h3>
+                    <p class="card-type">Fire - Stage 2</p>
+                    <p class="card-hp">HP 120</p>
+                    <div class="quantity-controls">
+                        <button class="qty-btn minus">-</button>
+                        <span class="qty-display">1</span>
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection Card Item -->
+            <div class="card-item collection-card">
+                <div class="card-image">
+                    <img src="blastoise.jpg" alt="Blastoise">
+                    <span class="card-rarity rare">Rare</span>
+                    <span class="card-quantity">x1</span>
+                </div>
+                <div class="card-info">
+                    <h3>Blastoise</h3>
+                    <p class="card-type">Water - Stage 2</p>
+                    <p class="card-hp">HP 170</p>
+                    <div class="quantity-controls">
+                        <button class="qty-btn minus">-</button>
+                        <span class="qty-display">1</span>
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collection Card Item -->
+            <div class="card-item collection-card">
+                <div class="card-image">
+                    <img src="venusaur.jpg" alt="Venusaur">
+                    <span class="card-rarity common">Common</span>
+                    <span class="card-quantity">x1</span>
+                </div>
+                <div class="card-info">
+                    <h3>Venusaur</h3>
+                    <p class="card-type">Grass - Stage 2</p>
+                    <p class="card-hp">HP 100</p>
+                    <div class="quantity-controls">
+                        <button class="qty-btn minus">-</button>
+                        <span class="qty-display">1</span>
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn">Previous</button>
+            <span class="page-info">Page 1 of 1</span>
+            <button class="page-btn">Next</button>
+        </div>
+    </div>
+</body>
+</html>

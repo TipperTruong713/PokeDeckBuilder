@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Browse Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link active">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Browse Cards Container -->
+    <div class="cards-container">
+        <div class="cards-header">
+            <h1>Browse Cards</h1>
+            <p>Explore and add cards to your collection</p>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="card-type">Card Type</label>
+                <select id="card-type">
+                    <option value="">All Types</option>
+                    <option value="pokemon">Pokemon</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="pokemon-type">Pokemon Type</label>
+                <select id="pokemon-type">
+                    <option value="">All Types</option>
+                    <option value="fire">Fire</option>
+                    <option value="water">Water</option>
+                    <option value="grass">Grass</option>
+                    <option value="electric">Electric</option>
+                    <option value="psychic">Psychic</option>
+                    <option value="fighting">Fighting</option>
+                    <option value="dark">Dark</option>
+                    <option value="steel">Steel</option>
+                    <option value="fairy">Fairy</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="normal">Normal</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="rarity">Rarity</label>
+                <select id="rarity">
+                    <option value="">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="ultra-rare">Ultra Rare</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="pack">Pack</label>
+                <select id="pack">
+                    <option value="">All Packs</option>
+                    <option value="base-set">Base Set</option>
+                    <option value="jungle">Jungle</option>
+                    <option value="fossil">Fossil</option>
+                    <option value="team-rocket">Team Rocket</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input type="text" id="search-cards" placeholder="Search by card name...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+            <!-- Card Item -->
+            <div class="card-item">
+                <div class="card-image">
+                    <img src="charizard.jpg" alt="Charizard">
+                    <span class="card-rarity rare">Rare</span>
+                </div>
+                <div class="card-info">
+                    <h3>Charizard</h3>
+                    <p class="card-type">Fire - Stage 2</p>
+                    <p class="card-hp">HP 120</p>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="add-btn">Add to Collection</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Item -->
+            <div class="card-item">
+                <div class="card-image">
+                    <img src="blastoise.jpg" alt="Blastoise">
+                    <span class="card-rarity rare">Rare</span>
+                </div>
+                <div class="card-info">
+                    <h3>Blastoise</h3>
+                    <p class="card-type">Water - Stage 2</p>
+                    <p class="card-hp">HP 170</p>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="add-btn">Add to Collection</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Item -->
+            <div class="card-item">
+                <div class="card-image">
+                    <img src="venusaur.jpg" alt="Venusaur">
+                    <span class="card-rarity rare">Rare</span>
+                </div>
+                <div class="card-info">
+                    <h3>Venusaur</h3>
+                    <p class="card-type">Grass - Stage 2</p>
+                    <p class="card-hp">HP 100</p>
+                    <div class="card-actions">
+                        <button class="view-btn">View Details</button>
+                        <button class="add-btn">Add to Collection</button>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button class="page-btn">Previous</button>
+            <span class="page-info">Page 1 of 1</span>
+            <button class="page-btn">Next</button>
+        </div>
+    </div>
+</body>
+</html>
