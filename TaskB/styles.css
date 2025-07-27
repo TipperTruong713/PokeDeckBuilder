@@ -993,8 +993,8 @@ input:focus {
     .stat-icon {
         font-size: 40px;
     }
-}
 
+    }
         .card-details-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1321,4 +1321,92 @@ input:focus {
                 flex-direction: column;
                 gap: 15px;
             }
+
         }
+
+        .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.cancel-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 24px;
+    background: white;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    border-color: #6b7280;
+    color: #374151;
+}
+
+.attack-entry {
+    padding: 20px;
+    background: #f9fafb;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.add-attack-btn {
+    padding: 10px 20px;
+    background: transparent;
+    color: #0066ff;
+    border: 2px dashed #0066ff;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.add-attack-btn:hover {
+    background: #0066ff;
+    color: white;
+}
+
+/* File input styling */
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #0066ff;
+    background: white;
+}
+
+/* Update collection header to support the Add Card button */
+.cards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.cards-header h1 {
+    color: white;
+    font-size: 36px;
+    margin: 0;
+}
+
+.cards-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    margin: 0;
+}
