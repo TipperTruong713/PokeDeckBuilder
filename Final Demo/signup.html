@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-container">
+            <div class="logo">
+                <span>PokéDeck Builder</span>
+            </div>
+        </div>
+
+        <h1>Create Account</h1>
+
+        <form action="signup_process.php" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <div class="password-input">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+            </div>
+
+            <button type="submit" class="sign-in-btn">Sign up</button>
+        </form>
+
+        <script>
+                function signup() {
+                    var username = document.getElementById("username").value;
+                    var password = document.getElementById("password").value;
+                    var reconfirmPassword = document.getElementById("reconfirm-password").value;
+                    var email = document.getElementById("email").value;
+                    var usernamePattern = /^[a-zA-Z]+$/;
+                    var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+                    var emailPattern = /^[A-Za-z0-9._]+@[A-Za-z]+\.[A-Za-z]{2,}$/;
+                    if (!usernamePattern.test(username)) {
+                        alert("First name  can only contain letters."); 
+                    }
+                    else if (!passwordPattern.test(password)) {
+                        alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+                    }
+                    else if (password !== reconfirmPassword) {
+                        alert("Passwords do not match.");
+                    }
+                    else if (!emailPattern.test(email)) {
+                        alert("Email must be a valid email address.");
+                    }
+        
+                    else if (username === "" || password === "" || reconfirmPassword === "" || email === "") {
+                        alert("Please fill out all fields.");
+                    }
+                    else {
+                        alert("Submitted successfully!");
+                         document.querySelector("form").submit();
+                         return true;
+                    }
+                    return false;
+                }
+        </script>
+
+        <div class="signup-link">
+            Already a trainer? <a href="index.html">Sign in</a>
+        </div>
+    </div>
+</body>
+</html>

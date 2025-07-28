@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>Welcome back, Trainer!</h1>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Total Decks</h3>
+                    <p class="stat-number">12</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-content">
+                    <h3>Cards Collected</h3>
+                    <p class="stat-number">847</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Recent Decks Section -->
+            <div class="content-card full-width">
+                <h2>Recent Decks</h2>
+                <div class="deck-list">
+                    <div class="deck-item">
+                        <div class="deck-info">
+                            <h4>Fire Dragon</h4>
+                            <p>Fire/Dragon Type • 60 cards</p>
+                        </div>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                    <div class="deck-item">
+                        <div class="deck-info">
+                            <h4>Water Ice</h4>
+                            <p>Water/Ice Type • 60 cards</p>
+                        </div>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+                <button class="action-btn">View All Decks</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

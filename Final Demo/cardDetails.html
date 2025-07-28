@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Card Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Card Details Container -->
+    <div class="card-details-container">
+        <div class="card-details-header">
+            <a href="collection.html" class="back-btn">Back</a>
+            <h1 id="card-name">Charizard</h1>
+        </div>
+
+        <div class="card-details-content">
+            <!-- Card Image Section -->
+            <div class="card-image-section">
+                <div class="card-image-large">
+                    <img id="card-image" src="charizard.jpg" alt="Card Image">
+                    <span id="card-rarity" class="card-rarity-large rare">Rare</span>
+                </div>
+            </div>
+
+            <!-- Card Information Section -->
+            <div class="card-info-section">
+                <!-- Basic Card Info -->
+                <div class="info-card">
+                    <h2>Basic Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Card Name:</span>
+                            <span id="info-card-name" class="info-value">Charizard</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Card Type:</span>
+                            <span id="info-card-type" class="info-value">Pokemon</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Rarity:</span>
+                            <span id="info-rarity" class="info-value">Rare</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Artist:</span>
+                            <span id="info-artist" class="info-value">Ken Sugimori</span>
+                        </div>
+                    </div>
+                    <div class="info-description">
+                        <span class="info-label">Description:</span>
+                        <p id="card-description">A powerful Fire-type Pokémon.</p>
+                    </div>
+                </div>
+
+                <!-- Pokemon Specific Info (shown only for Pokemon cards) -->
+                <div id="pokemon-info" class="info-card">
+                    <h2>Pokémon Details</h2>
+                    <div class="pokemon-stats">
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <span class="stat-label">Stage:</span>
+                                <span id="pokemon-stage" class="stat-value">Stage 2</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Type:</span>
+                                <span id="pokemon-type" class="stat-value type-badge fire">Fire</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">HP:</span>
+                                <span id="pokemon-hp" class="stat-value hp-value">120</span>
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="stat-item">
+                                <span class="stat-label">Weakness:</span>
+                                <span id="pokemon-weakness" class="stat-value type-badge water">Water</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Retreat Cost:</span>
+                                <span id="pokemon-retreat" class="stat-value">3</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Ability:</span>
+                                <span id="pokemon-ability" class="stat-value">Solar Power</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pokemon Attacks (shown only for Pokemon cards) -->
+                <div id="pokemon-attacks" class="info-card">
+                    <h2>Attacks</h2>
+                    <div id="attacks-list" class="attacks-list">
+                        <div class="attack-item">
+                            <div class="attack-header">
+                                <span class="attack-name">Fire Spin</span>
+                                <span class="attack-damage">100</span>
+                            </div>
+                            <p class="attack-description">Discard 2 Energy cards attached to Charizard or this attack does nothing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainer Specific Info (shown only for Trainer cards) -->
+                <div id="trainer-info" class="info-card" style="display: none;">
+                    <h2>Trainer Details</h2>
+                    <div class="info-item">
+                        <span class="info-label">Trainer Type:</span>
+                        <span id="trainer-type" class="info-value">Supporter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

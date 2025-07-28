@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - My Decks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="decks.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link active">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- My Decks Container -->
+    <div class="decks-container">
+        <div class="decks-header">
+            <h1>My Decks</h1>
+            <a href="deck-editor.html" class="new-deck-btn">+ Create New Deck</a>
+        </div>
+
+        <!-- Decks Grid -->
+        <div class="decks-grid">
+            <!-- Deck Card -->
+            <div class="deck-card">
+                <div class="deck-header">
+                    <h2>Fire/Dragon</h2>
+                    <span class="deck-format">Standard</span>
+                </div>
+                <div class="deck-types">
+                    <span class="type-badge fire">Fire</span>
+                    <span class="type-badge dragon">Dragon</span>
+                </div>
+                <div class="deck-stats">
+                    <div class="deck-stat">
+                        <span class="stat-label">Cards</span>
+                        <span class="stat-value">60/60</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Pokemon</span>
+                        <span class="stat-value">18</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Trainers</span>
+                        <span class="stat-value">30</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Energy</span>
+                        <span class="stat-value">12</span>
+                    </div>
+                </div>
+                <p class="deck-description">This is a fire and dragon type deck.</p>
+                <div class="deck-actions">
+                    <button class="edit-deck-btn">Edit Deck</button>
+                    <button class="delete-deck-btn">Delete</button>
+                </div>
+            </div>
+
+            <!-- Deck Card -->
+            <div class="deck-card">
+                <div class="deck-header">
+                    <h2>Water/Ice</h2>
+                    <span class="deck-format">Expanded</span>
+                </div>
+                <div class="deck-types">
+                    <span class="type-badge water">Water</span>
+                    <span class="type-badge ice">Ice</span>
+                </div>
+                <div class="deck-stats">
+                    <div class="deck-stat">
+                        <span class="stat-label">Cards</span>
+                        <span class="stat-value">60/60</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Pokemon</span>
+                        <span class="stat-value">20</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Trainers</span>
+                        <span class="stat-value">26</span>
+                    </div>
+                    <div class="deck-stat">
+                        <span class="stat-label">Energy</span>
+                        <span class="stat-value">14</span>
+                    </div>
+                </div>
+                <p class="deck-description">This is a water and ice type deck.</p>
+                <div class="deck-actions">
+                    <button class="edit-deck-btn">Edit Deck</button>
+                    <button class="delete-deck-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
