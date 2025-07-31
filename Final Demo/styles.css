@@ -1410,3 +1410,8 @@ input[type="file"]:hover {
     font-size: 18px;
     margin: 0;
 }
+
+.scrollable-page {
+    display: block !important;
+    overflow: auto !important;
+}

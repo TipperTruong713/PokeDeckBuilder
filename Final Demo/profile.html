@@ -6,7 +6,7 @@
     <title>Pokemon Deck Builder - Profile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="scrollable-page">
     <!-- Navigation Header -->
     <nav class="navbar">
         <div class="nav-container">
@@ -19,7 +19,7 @@
                 <a href="browseCard.html" class="nav-link">Browse Cards</a>
                 <a href="collection.html" class="nav-link">Collection</a>
                 <a href="profile.html" class="nav-link active">Profile</a>
-                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+                <a href="index.html" class="nav-link logout">Logout</a>
             </div>
         </div>
     </nav>
@@ -35,36 +35,36 @@
             <!-- Account Information -->
             <div class="profile-section">
                 <h2>Account Information</h2>
-                <form class="profile-form">
+                <form class="profile-form" action="updateProfile.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" id="username" required>
+                        <input type="text" id="username" name="username" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                    <button type="submit" class="save-btn">Save Changes</button>
+                    <button type="submit" name="update_account" class="save-btn">Save Changes</button>
                 </form>
             </div>
 
             <!-- Password Change -->
             <div class="profile-section">
                 <h2>Change Password</h2>
-                <form class="profile-form">
+                <form class="profile-form" action="updateProfile.php" method="POST">
                     <div class="form-group">
                         <label for="current-password">Current Password</label>
-                        <input type="password" id="current-password" required>
+                        <input type="password" id="current-password" name="current-password" required>
                     </div>
                     <div class="form-group">
                         <label for="new-password">New Password</label>
-                        <input type="password" id="new-password" required>
+                        <input type="password" id="new-password" name="new-password" required>
                     </div>
                     <div class="form-group">
                         <label for="confirm-new-password">Confirm New Password</label>
-                        <input type="password" id="confirm-new-password" required>
+                        <input type="password" id="confirm-new-password" name="confirm-new-password" required>
                     </div>
-                    <button type="submit" class="save-btn">Update Password</button>
+                    <button type="submit" name="update_password" class="save-btn">Update Password</button>
                 </form>
             </div>
         </div>
