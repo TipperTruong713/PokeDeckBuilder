@@ -22,6 +22,7 @@
     if ($stmt->execute()) {
         $stmt->close(); 
 
+        /*
         session_start(); 
         $sql = "SELECT User_ID from User where Username = ?";
         $stmt = $conn->prepare($sql);
@@ -32,7 +33,7 @@
         $row = $result->fetch_assoc();
 
         $_SESSION['user_ID'] =  $row['User_ID']; 
-
+        */
         header("Location: ./index.html");
         exit();
     } else {
