@@ -211,7 +211,6 @@ input:focus {
 
 /* Profile Page Styles */
 .profile-container {
-    max-width: 800px;
     margin: 0 auto;
     padding: 100px 20px 40px;
     min-height: 100vh;
@@ -233,9 +232,11 @@ input:focus {
 }
 
 .profile-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;   /* same spacing as before */
+    width: 100%; /* allow grid to take full width */
+    margin: 0 auto; /* centers the whole grid */
 }
 
 .profile-section {
