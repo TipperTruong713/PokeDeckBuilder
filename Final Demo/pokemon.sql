@@ -1,0 +1,76 @@
+-- Pokemon Cards
+INSERT IGNORE INTO card (Card_ID, Card_Name, Rarity, Artist, Card_Type, Card_Image, Card_Description) VALUES
+('001', 'Charizard', 'rare', 'Ken Sugimori', 'pokemon', 'charizard.jpg', 'A powerful Fire-type Pokemon'),
+('002', 'Blastoise', 'rare', 'Ken Sugimori', 'pokemon', 'blastoise.jpg', 'A powerful Water-type Pokemon'),
+('003', 'Venusaur', 'rare', 'Ken Sugimori', 'pokemon', 'venusaur.jpg', 'A powerful Grass-type Pokemon'),
+('004', 'Pikachu', 'common', 'Atsuko Nishida', 'pokemon', 'pikachu.jpg', 'An Electric-type Mouse Pokemon'),
+('005', 'Squirtle', 'common', 'Ken Sugimori', 'pokemon', 'squirtle.jpg', 'A Water-type Turtle Pokemon'),
+('006', 'Alakazam', 'rare', 'Ken Sugimori', 'pokemon', 'alakazam.jpg', 'A powerful Psychic-type Pokemon'),
+('007', 'Machamp', 'rare', 'Ken Sugimori', 'pokemon', 'machamp.jpg', 'A Fighting-type Pokemon'),
+('008', 'Gengar', 'rare', 'Ken Sugimori', 'pokemon', 'gengar.jpg', 'A Ghost-type Pokemon'),
+('009', 'Dragonite', 'rare', 'Ken Sugimori', 'pokemon', 'dragonite.jpg', 'A Dragon-type Pokemon'),
+('010', 'Eevee', 'uncommon', 'Ken Sugimori', 'pokemon', 'eevee.jpg', 'A Normal-type Evolution Pokemon'),
+('011', 'Charmander', 'Common', 'Ken Sugimori', 'pokemon', 'charmander.jpg', 'A Fire-type Lizard Pokemon'),
+('012', 'Charmeleon', 'Uncommon', 'Ken Sugimori', 'pokemon', 'charmeleon.jpg', 'A Fire-type Flame Pokemon'),
+('013', 'Wartortle', 'Uncommon', 'Ken Sugimori', 'pokemon', 'wartortle.jpg', 'A Water-type Turtle Pokemon'),
+('014', 'Ivysaur', 'Uncommon', 'Ken Sugimori', 'pokemon', 'ivysaur.jpg', 'A Grass-type Seed Pokemon'),
+('015', 'Bulbasaur', 'Common', 'Ken Sugimori', 'pokemon', 'bulbasaur.jpg', 'A Grass-type Seed Pokemon'),
+('016', 'Raichu', 'Uncommon', 'Atsuko Nishida', 'pokemon', 'raichu.jpg', 'An Electric-type Mouse Pokemon'),
+('017', 'Gyarados', 'Rare', 'Ken Sugimori', 'pokemon', 'gyarados.jpg', 'A Water-type Atrocious Pokemon'),
+('018', 'Magikarp', 'Common', 'Ken Sugimori', 'pokemon', 'magikarp.jpg', 'A Water-type Fish Pokemon'),
+('019', 'Snorlax', 'Rare', 'Ken Sugimori', 'pokemon', 'snorlax.jpg', 'A Normal-type Sleeping Pokemon'),
+('020', 'Mewtwo', 'Ultra Rare', 'Ken Sugimori', 'pokemon', 'mewtwo.jpg', 'A Psychic-type Genetic Pokemon'),
+('021', 'Mew', 'Ultra Rare', 'Ken Sugimori', 'pokemon', 'mew.jpg', 'A Psychic-type New Species Pokemon'),
+('022', 'Articuno', 'Rare', 'Ken Sugimori', 'pokemon', 'articuno.jpg', 'An Ice-type Freeze Pokemon'),
+('023', 'Zapdos', 'Rare', 'Ken Sugimori', 'pokemon', 'zapdos.jpg', 'An Electric-type Electric Pokemon'),
+('024', 'Moltres', 'Rare', 'Ken Sugimori', 'pokemon', 'moltres.jpg', 'A Fire-type Flame Pokemon'),
+('025', 'Lapras', 'Rare', 'Ken Sugimori', 'pokemon', 'lapras.jpg', 'A Water-type Transport Pokemon'),
+
+-- Trainer Cards
+('026', 'Professor Oak', 'Uncommon', 'Ken Sugimori', 'trainer', 'professor_oak.jpg', 'Draw 7 cards from your deck'),
+('027', 'Pokeball', 'Common', 'Ken Sugimori', 'trainer', 'pokeball.jpg', 'Search your deck for a Pokemon'),
+('028', 'Energy Removal', 'Common', 'Ken Sugimori', 'trainer', 'energy_removal.jpg', 'Remove an energy card'),
+('029', 'Potion', 'Common', 'Ken Sugimori', 'trainer', 'potion.jpg', 'Heal 20 damage from a Pokemon'),
+('030', 'Switch', 'Common', 'Ken Sugimori', 'trainer', 'switch.jpg', 'Switch your active Pokemon'),
+
+-- Energy Cards
+('031', 'Fire Energy', 'Common', 'Ken Sugimori', 'energy', 'fire_energy.jpg', 'Basic Fire Energy'),
+('032', 'Water Energy', 'Common', 'Ken Sugimori', 'energy', 'water_energy.jpg', 'Basic Water Energy'),
+('033', 'Grass Energy', 'Common', 'Ken Sugimori', 'energy', 'grass_energy.jpg', 'Basic Grass Energy'),
+('034', 'Electric Energy', 'Common', 'Ken Sugimori', 'energy', 'electric_energy.jpg', 'Basic Electric Energy'),
+('035', 'Psychic Energy', 'Common', 'Ken Sugimori', 'energy', 'psychic_energy.jpg', 'Basic Psychic Energy');
+
+INSERT IGNORE INTO pokemon_card (Card_ID, Stage, Ability, Type, Weakness, HP, Retreat_Cost) VALUES
+('001', 'Stage 2', 'Fire Spin', 'fire', 'water', 120, 3),
+('002', 'Stage 2', 'Hydro Pump', 'water', 'electric', 170, 3),
+('003', 'Stage 2', 'Solar Beam', 'grass', 'fire', 100, 2),
+('004', 'Basic', 'Thunder Shock', 'electric', 'fighting', 60, 1),
+('005', 'Basic', 'Water Gun', 'water', 'electric', 40, 1),
+('006', 'Stage 2', 'Psychic', 'psychic', 'psychic', 80, 3),
+('007', 'Stage 2', 'Mountain Chopping', 'fighting', 'psychic', 180, 2),
+('008', 'Stage 2', 'Shadow Ball', 'psychic', 'dark', 130, 1),
+('009', 'Stage 2', 'Dragon Rush', 'dragon', 'fairy', 140, 2),
+('010', 'Basic', 'Tail Whip', 'normal', 'fighting', 50, 1),
+('011', 'Basic', 'Ember', 'Fire', 'Water', 50, 1),
+('012', 'Stage 1', 'Flame Thrower', 'Fire', 'Water', 80, 2),
+('013', 'Stage 1', 'Water Pulse', 'Water', 'Electric', 70, 1),
+('014', 'Stage 1', 'Razor Leaf', 'Grass', 'Fire', 70, 2),
+('015', 'Basic', 'Tackle', 'Grass', 'Fire', 50, 1),
+('016', 'Stage 1', 'Thunder', 'Electric', 'Fighting', 90, 2),
+('017', 'Stage 1', 'Hyper Beam', 'Water', 'Electric', 160, 3),
+('018', 'Basic', 'Splash', 'Water', 'Electric', 30, 1),
+('019', 'Basic', 'Body Slam', 'Normal', 'Fighting', 140, 4),
+('020', 'Basic', 'Psystrike', 'Psychic', 'Psychic', 130, 2),
+('021', 'Basic', 'Psypower', 'Psychic', 'Psychic', 60, 1),
+('022', 'Basic', 'Blizzard', 'Ice', 'Fighting', 100, 2),
+('023', 'Basic', 'Sky-High Claws', 'Electric', 'Fighting', 120, 2),
+('024', 'Basic', 'Fire Blast', 'Fire', 'Water', 100, 2),
+('025', 'Basic', 'Ice Beam', 'Water', 'Electric', 80, 2);
+
+-- Trainer Card Details
+INSERT IGNORE INTO trainer_card (Card_ID, Trainer_Card_Type) VALUES
+('026', 'Supporter'),
+('027', 'Item'),
+('028', 'Item'),
+('029', 'Item'),
+('030', 'Item');

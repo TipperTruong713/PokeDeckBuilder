@@ -92,28 +92,3 @@ CREATE TABLE IF NOT EXISTS Deck_Cards (
 	FOREIGN KEY (Card_ID) REFERENCES Card(Card_ID) ON DELETE CASCADE,
 	CHECK (Quantity_In_Deck <= 4)
 );
-
--- Sample Pokemon Cards for Testing
-INSERT INTO card (Card_ID, Card_Name, Rarity, Artist, Card_Type, Card_Image, Card_Description) VALUES
-('001', 'Charizard', 'rare', 'Ken Sugimori', 'pokemon', 'charizard.jpg', 'A powerful Fire-type Pokemon'),
-('002', 'Blastoise', 'rare', 'Ken Sugimori', 'pokemon', 'blastoise.jpg', 'A powerful Water-type Pokemon'),
-('003', 'Venusaur', 'rare', 'Ken Sugimori', 'pokemon', 'venusaur.jpg', 'A powerful Grass-type Pokemon'),
-('004', 'Pikachu', 'common', 'Atsuko Nishida', 'pokemon', 'pikachu.jpg', 'An Electric-type Mouse Pokemon'),
-('005', 'Squirtle', 'common', 'Ken Sugimori', 'pokemon', 'squirtle.jpg', 'A Water-type Turtle Pokemon'),
-('006', 'Alakazam', 'rare', 'Ken Sugimori', 'pokemon', 'alakazam.jpg', 'A powerful Psychic-type Pokemon'),
-('007', 'Machamp', 'rare', 'Ken Sugimori', 'pokemon', 'machamp.jpg', 'A Fighting-type Pokemon'),
-('008', 'Gengar', 'rare', 'Ken Sugimori', 'pokemon', 'gengar.jpg', 'A Ghost-type Pokemon'),
-('009', 'Dragonite', 'rare', 'Ken Sugimori', 'pokemon', 'dragonite.jpg', 'A Dragon-type Pokemon'),
-('010', 'Eevee', 'uncommon', 'Ken Sugimori', 'pokemon', 'eevee.jpg', 'A Normal-type Evolution Pokemon');
-
-INSERT INTO pokemon_card (Card_ID, Stage, Ability, Type, Weakness, HP, Retreat_Cost) VALUES
-('001', 'Stage 2', 'Fire Spin', 'fire', 'water', 120, 3),
-('002', 'Stage 2', 'Hydro Pump', 'water', 'electric', 170, 3),
-('003', 'Stage 2', 'Solar Beam', 'grass', 'fire', 100, 2),
-('004', 'Basic', 'Thunder Shock', 'electric', 'fighting', 60, 1),
-('005', 'Basic', 'Water Gun', 'water', 'electric', 40, 1),
-('006', 'Stage 2', 'Psychic', 'psychic', 'psychic', 80, 3),
-('007', 'Stage 2', 'Seismic Toss', 'fighting', 'psychic', 100, 3),
-('008', 'Stage 1', 'Shadow Ball', 'psychic', 'dark', 60, 1),
-('009', 'Stage 2', 'Dragon Rush', 'dragon', 'fairy', 140, 2),
-('010', 'Basic', 'Tail Whip', 'normal', 'fighting', 50, 1);
