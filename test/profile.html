@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>PokéDeck Builder</span></div>
+            <div class="nav-links">
+                <a href="dashboard.html"  class="nav-link">Dashboard</a>
+                <a href="mydecks.html"    class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html"    class="nav-link active">Profile</a>
+                <a href="logout.php"      class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header"><h1>My Profile</h1></div>
+
+        <p style="text-align:center;color:#0066ff">
+            <!-- show `msg=…` query-string if redirected back -->
+            <script>
+              const params = new URLSearchParams(window.location.search);
+              if (params.get('msg')) document.write(params.get('msg'));
+            </script>
+        </p>
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>Account Information</h2>
+
+                <form class="profile-form" action="profile.php" method="POST">
+                    <input type="hidden" name="update_account" value="1">
+
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input  type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input  type="email" id="email" name="email" required>
+                    </div>
+
+                    <button type="submit" class="save-btn">Save Changes</button>
+                </form>
+            </div>
+
+            <div class="profile-section">
+                <h2>Change Password</h2>
+
+                <form class="profile-form" action="profile.php" method="POST">
+                    <input type="hidden" name="update_password" value="1">
+
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="current_password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new_password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" name="confirm_new_password" required>
+                    </div>
+
+                    <button type="submit" class="save-btn">Update Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

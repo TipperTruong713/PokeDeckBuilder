@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Deck Builder - Browse Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>PokéDeck Builder</span></div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html"   class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link active">Browse Cards</a>
+                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="profile.html"   class="nav-link">Profile</a>
+                <a href="logout.php"     class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="cards-container">
+        <div class="cards-header">
+            <h1>Browse Cards</h1>
+            <p>Explore and add cards to your collection</p>
+        </div>
+        
+        <a href="addCard.html" class="new-card-btn">+ Add Card</a>
+
+        <form class="filters-section" method="GET" action="browseCard.php" target="cardsFrame">
+            <div class="filter-group">
+                <label>Card Type</label>
+                <select name="card_type">
+                    <option value="">All</option>
+                    <option value="pokemon">Pokemon</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Pokemon Type</label>
+                <select name="pokemon_type">
+                    <option value="">All</option>
+                    <?php
+                        $types = ['Fire','Water','Grass','Electric','Psychic','Fighting','Dark','Steel','Fairy','Dragon','Normal'];
+                        foreach ($types as $t) echo "<option value='".strtolower($t)."'>$t</option>";
+                    ?>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Rarity</label>
+                <select name="rarity">
+                    <option value="">All</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="ultra-rare">Ultra Rare</option>
+                </select>
+            </div>
+
+            <div class="search-group">
+                <input type="text" name="q" placeholder="Search by name">
+                <button class="search-btn">Go</button>
+            </div>
+        </form>
+
+        <!-- Results iframe -->
+        <iframe name="cardsFrame"
+                src="browseCard.php"
+                style="border:none;width:100%;min-height:1000px;margin-top:30px;"></iframe>
+    </div>
+</body>
+</html>

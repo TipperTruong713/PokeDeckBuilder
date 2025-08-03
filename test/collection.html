@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PokéDeck Builder – My Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo"><span>PokéDeck Builder</span></div>
+            <div class="nav-links">
+                <a href="dashboard.html"  class="nav-link">Dashboard</a>
+                <a href="mydecks.html"    class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link active">Collection</a>
+                <a href="profile.html"    class="nav-link">Profile</a>
+                <a href="logout.php"      class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cards-container">
+        <div class="cards-header">
+            <h1>My Collection</h1>
+        </div>
+
+        <form class="filters-section" method="GET" action="collection.php" target="collFrame">
+            <div class="filter-group">
+                <label>Card Type</label>
+                <select name="card_type">
+                    <option value="">All</option>
+                    <option value="pokemon">Pokemon</option>
+                    <option value="trainer">Trainer</option>
+                    <option value="energy">Energy</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Rarity</label>
+                <select name="rarity">
+                    <option value="">All</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="ultra-rare">Ultra Rare</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select name="sort">
+                    <option value="name">Name</option>
+                    <option value="quantity">Quantity</option>
+                    <option value="rarity">Rarity</option>
+                    <option value="type">Type</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input  type="text" name="q" placeholder="Search your collection">
+                <button class="search-btn">Go</button>
+            </div>
+        </form>
+
+        <iframe name="collFrame"
+                src="collection.php"
+                style="border:none;width:100%;min-height:1000px;margin-top:30px;"></iframe>
+    </div>
+</body>
+</html>

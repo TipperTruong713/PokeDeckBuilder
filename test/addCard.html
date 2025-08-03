@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Add Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>PokéDeck Builder</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="browseCard.html" class="nav-link">Browse Cards</a>
+                <a href="collection.html" class="nav-link active">Collection</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="LoginPage.html" class="nav-link logout">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Add New Card</h1>
+        </div>
+
+
+        <div class="profile-content">
+            <div class="profile-section">
+                <h2>Card Information</h2>
+                <form class="profile-form" action="addCard.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-name">Card Name *</label>
+                            <input type="text" id="card-name" name="card_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-type">Card Type *</label>
+                            <select id="card-type" name="card_type" required>
+                                <option value="">Select Type</option>
+                                <option value="Pokemon">Pokemon</option>
+                                <option value="Trainer">Trainer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rarity">Rarity *</label>
+                            <select id="rarity" name="rarity" required>
+                                <option value="">Select Rarity</option>
+                                <option value="Common">Common</option>
+                                <option value="Uncommon">Uncommon</option>
+                                <option value="Rare">Rare</option>
+                                <option value="Ultra Rare">Ultra Rare</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="artist">Artist</label>
+                            <input type="text" id="artist" name="artist">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-description">Card Description</label>
+                        <textarea id="card-description" name="card_description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-image">Card Image</label>
+                        <input type="file" id="card-image" name="card_image" accept="image/*">
+                    </div>
+
+                    <div id="pokemon-fields" style="display: none;">
+                        <h3>Pokemon Details</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stage">Stage</label>
+                                <select id="stage" name="stage">
+                                    <option value="">Select Stage</option>
+                                    <option value="Basic">Basic</option>
+                                    <option value="Stage 1">Stage 1</option>
+                                    <option value="Stage 2">Stage 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pokemon-type">Pokemon Type *</label>
+                                <select id="pokemon-type" name="pokemon_type">
+                                    <option value="">Select Type</option>
+                                    <option value="Fire">Fire</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Grass">Grass</option>
+                                    <option value="Electric">Electric</option>
+                                    <option value="Psychic">Psychic</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Dark">Dark</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="Fairy">Fairy</option>
+                                    <option value="Dragon">Dragon</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Ice">Ice</option>
+                                    <option value="Ghost">Ghost</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hp">HP</label>
+                                <input type="number" id="hp" name="hp" min="0" max="999">
+                            </div>
+                            <div class="form-group">
+                                <label for="weakness">Weakness</label>
+                                <select id="weakness" name="weakness">
+                                    <option value="">Select Weakness</option>
+                                    <option value="Fire">Fire</option>
+                                    <option value="Water">Water</option>
+                                    <option value="Grass">Grass</option>
+                                    <option value="Electric">Electric</option>
+                                    <option value="Psychic">Psychic</option>
+                                    <option value="Fighting">Fighting</option>
+                                    <option value="Dark">Dark</option>
+                                    <option value="Steel">Steel</option>
+                                    <option value="Fairy">Fairy</option>
+                                    <option value="Dragon">Dragon</option>
+                                    <option value="Normal">Normal</option>
+                                    <option value="Ice">Ice</option>
+                                    <option value="Ghost">Ghost</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ability">Ability</label>
+                                <input type="text" id="ability" name="ability">
+                            </div>
+                            <div class="form-group">
+                                <label for="retreat-cost">Retreat Cost</label>
+                                <input type="number" id="retreat-cost" name="retreat_cost" min="0" max="5" value="0">
+                            </div>
+                        </div>
+
+                        <h3>Attacks</h3>
+                        <div id="attacks-container">
+                            <div class="attack-entry">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="attack-name-1">Attack Name</label>
+                                        <input type="text" id="attack-name-1" name="attack_name[]">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="attack-damage-1">Attack Damage</label>
+                                        <input type="number" id="attack-damage-1" name="attack_damage[]" min="0" max="999" value="0">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attack-description-1">Attack Description</label>
+                                    <textarea id="attack-description-1" name="attack_description[]" rows="2"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-attack-btn" onclick="addAttackField()">+ Add Another Attack</button>
+                    </div>
+
+                    <div id="trainer-fields" style="display: none;">
+                        <h3>Trainer Details</h3>
+                        <div class="form-group">
+                            <label for="trainer-type">Trainer Card Type *</label>
+                            <select id="trainer-type" name="trainer_card_type">
+                                <option value="">Select Type</option>
+                                <option value="Supporter">Supporter</option>
+                                <option value="Item">Item</option>
+                                <option value="Stadium">Stadium</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Quantity to Add *</label>
+                            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Add to Collection</button>
+                        <a href="collection.html" class="cancel-btn">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide fields based on card type selection
+        document.getElementById('card-type').addEventListener('change', function() {
+            const pokemonFields = document.getElementById('pokemon-fields');
+            const trainerFields = document.getElementById('trainer-fields');
+            const pokemonTypeField = document.getElementById('pokemon-type');
+            
+            if (this.value === 'Pokemon') {
+                pokemonFields.style.display = 'block';
+                trainerFields.style.display = 'none';
+                pokemonTypeField.setAttribute('required', 'required');
+            } else if (this.value === 'Trainer') {
+                pokemonFields.style.display = 'none';
+                trainerFields.style.display = 'block';
+                pokemonTypeField.removeAttribute('required');
+            } else {
+                pokemonFields.style.display = 'none';
+                trainerFields.style.display = 'none';
+                pokemonTypeField.removeAttribute('required');
+            }
+        });
+
+        // Add new attack field
+        let attackCount = 1;
+        function addAttackField() {
+            attackCount++;
+            const container = document.getElementById('attacks-container');
+            const newAttack = document.createElement('div');
+            newAttack.className = 'attack-entry';
+            newAttack.innerHTML = `
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attack-name-${attackCount}">Attack Name</label>
+                        <input type="text" id="attack-name-${attackCount}" name="attack_name[]">
+                    </div>
+                    <div class="form-group">
+                        <label for="attack-damage-${attackCount}">Attack Damage</label>
+                        <input type="number" id="attack-damage-${attackCount}" name="attack_damage[]" min="0" max="999" value="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="attack-description-${attackCount}">Attack Description</label>
+                    <textarea id="attack-description-${attackCount}" name="attack_description[]" rows="2"></textarea>
+                </div>
+            `;
+            container.appendChild(newAttack);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PokéDeck Builder – Sign Up</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="login-container">
+
+    <h1>Create Account</h1>
+
+    <div id="signup-error" class="alert" style="display:none;"></div>
+
+    <form action="register.php" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label>Username
+                <input name="username" type="text" required>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>Email
+                <input name="email" type="email" required>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>Password
+                <input name="password" type="password" required>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password
+                <input name="confirm_password" type="password" required>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>Profile image (optional)
+                <input name="profile_image" type="file" accept="image/*">
+            </label>
+        </div>
+
+        <button class="sign-in-btn">Sign up</button>
+    </form>
+
+    <div class="signup-link">
+        Already a trainer? <a href="LoginPage.html">Sign in</a>
+    </div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const banner  = document.getElementById('signup-error');
+    const params  = new URLSearchParams(location.search);
+    const code    = params.get('error');
+
+    if (!code) return;
+
+    let msg = 'Something went wrong. Please try again.';
+    if (code === 'nomatch') msg = 'Passwords do not match.';
+    if (code === 'taken')   msg = 'Username or e-mail already taken.';
+    if (code === 'weak')    msg = 'Password must be at least 6 characters.';
+
+    banner.textContent = msg;
+    banner.style.display = 'block';
+});
+</script>
+</body>
+</html>
