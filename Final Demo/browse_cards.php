@@ -88,7 +88,7 @@ try {
                 <a href="browse_cards.php" class="nav-link active">Browse Cards</a>
                 <a href="collection.html" class="nav-link">Collection</a>
                 <a href="profile.html" class="nav-link">Profile</a>
-                <a href="index.html" class="nav-link logout">Logout</a>
+                <a href="logout.php" class="nav-link logout">Logout</a>
             </div>
         </div>
     </nav>

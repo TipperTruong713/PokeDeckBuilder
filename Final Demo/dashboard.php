@@ -85,12 +85,12 @@ $stmt->close();
                 <span>PokéDeck Builder</span>
             </div>
             <div class="nav-links">
-                <a href="dashboard.php" class="nav-link active">Dashboard</a>
+                <a href="dashboard.php" class="nav-link">Dashboard</a>
                 <a href="mydecks.html" class="nav-link">My Decks</a>
                 <a href="browse_cards.php" class="nav-link">Browse Cards</a>
                 <a href="collection.html" class="nav-link">Collection</a>
                 <a href="profile.html" class="nav-link">Profile</a>
-                <a href="index.html" class="nav-link logout">Logout</a>
+                <a href="logout.php" class="nav-link logout">Logout</a>
             </div>
         </div>
     </nav>

@@ -29,7 +29,7 @@ if ($result && $result->num_rows > 0) {
 
     $_SESSION['user_ID'] = $row['User_ID'];
     $_SESSION['username'] = $row['Username'];
-    header("Location: dashboard.html");
+    header("Location: dashboard.php");
     exit();
 } else {
     echo "<script>alert('Invalid email or password.'); window.location.href='index.html';</script>";
