@@ -83,7 +83,7 @@ try {
                 <span>PokéDeck Builder</span>
             </div>
             <div class="nav-links">
-                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="dashboard.php" class="nav-link">Dashboard</a>
                 <a href="mydecks.html" class="nav-link">My Decks</a>
                 <a href="browse_cards.php" class="nav-link active">Browse Cards</a>
                 <a href="collection.html" class="nav-link">Collection</a>
