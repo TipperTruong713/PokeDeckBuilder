@@ -58,8 +58,8 @@
 }
 
 .deck-card.incomplete {
-    border: 2px dashed #fbbf24;
-    background: rgba(254, 243, 199, 0.95);
+    border: 2px dashed #ffffff;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .deck-header {
@@ -143,7 +143,7 @@
 }
 
 .stat-value.incomplete {
-    color: #f59e0b;
+    color: #000000;
 }
 
 .deck-description {

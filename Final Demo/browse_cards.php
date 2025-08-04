@@ -84,9 +84,9 @@ try {
             </div>
             <div class="nav-links">
                 <a href="dashboard.php" class="nav-link">Dashboard</a>
-                <a href="mydecks.html" class="nav-link">My Decks</a>
+                <a href="mydecks.php" class="nav-link">My Decks</a>
                 <a href="browse_cards.php" class="nav-link active">Browse Cards</a>
-                <a href="collection.html" class="nav-link">Collection</a>
+                <a href="collection.php" class="nav-link">Collection</a>
                 <a href="profile.html" class="nav-link">Profile</a>
                 <a href="logout.php" class="nav-link logout">Logout</a>
             </div>
@@ -169,7 +169,7 @@ try {
                         <div class="card-image">
                             <?php 
                             // Check if card has an image, and prepend uploads/ path if it exists
-                            $imagePath = 'placeholder.jpg'; // Default placeholder
+                            $imagePath = 'default.jpg'; // Default placeholder
                             if (!empty($card['Card_Image'])) {
                                 // If the Card_Image already contains uploads/, use as is
                                 if (strpos($card['Card_Image'], 'uploads/') === 0) {
@@ -181,7 +181,7 @@ try {
                                 
                                 // Check if file actually exists, fallback to placeholder if not
                                 if (!file_exists($imagePath)) {
-                                    $imagePath = 'placeholder.jpg';
+                                    $imagePath = 'default.jpg';
                                 }
                             }
                             ?>
@@ -231,8 +231,26 @@ try {
         }
         
         function addToCollection(cardId) {
-            // You can implement this function to add cards to collection
-            alert('Add to collection functionality would be implemented here for card ID: ' + cardId);
+            // Send request to add card to collection
+            fetch('add_to_collection.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'card_id=' + cardId
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                alert('Error adding card to collection');
+                console.error('Error:', error);
+            });
         }
     </script>
 </body>
