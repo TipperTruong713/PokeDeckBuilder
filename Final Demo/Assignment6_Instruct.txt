@@ -1,0 +1,25 @@
+Part A: First make sure there already is a user established in the database
+        Next in index.html...
+        1. Have the login page point to login_process_vulnerable.php instead of login_process.php
+        (<form action="login_process.php" method="POST"> changed to <form action="login_process_vulnerable.php" method="POST">)
+        
+        2. Have the email input type change from "email" to "text"
+        (<input type="email" id="email" name="email" required> changed to <input type="text" id="email" name="email" required>)
+        (This removes client-side email validation so we can input the injection command)
+        
+        Then save and then head back to the login page...
+        1. Enter this next part exactly in the double quotes "' OR User_ID=1 #"
+        (The single quote breaks out of the SQL string, OR User_ID=1 targets the first user in the database,and # comments out 
+        the rest of the query)
+        
+        2. Enter anything for the password and click sign in
+
+        The vulnerable SQL query becomes SELECT User_ID, Username FROM User WHERE Email = '' OR User_ID=1 which will always 
+        return the first user since User_ID=1 evaluates to true, completely bypassing authentication.
+
+Part B:
+
+Part C: How we have the login in process set up right now. 
+        Make sure you revert all changes made to index.html from part A before presenting
+        (maybe keep the email input type to text just to show that the injection command wont work at all instead of it wont work
+        beacuse its not in the form of an email)
