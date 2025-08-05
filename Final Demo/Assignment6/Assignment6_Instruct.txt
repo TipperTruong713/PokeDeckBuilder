@@ -1,0 +1,31 @@
+Part A: First make sure there already is a user established in the database
+        Run Assignment6/loginVuln.html...
+        1. Enter this next part exactly in the double quotes "' OR User_ID=1 #"
+        (The single quote breaks out of the SQL string, OR User_ID=1 targets the first user in the database,and # comments out 
+        the rest of the query)
+        
+        2. Enter anything for the password and click sign in
+
+        The vulnerable SQL query becomes SELECT User_ID, Username FROM User WHERE Email = '' OR User_ID=1 which will always 
+        return the first user since User_ID=1 evaluates to true, completely bypassing authentication.
+
+Part B: Make sure you have logged in from Assignment6/loginVuln.html
+        1. Enter this next part exactly in the double quotes "' OR '1' = '1" to the current password
+        The single quote breaks out of the SQL string, OR '1' = '1 makes the password statement always true
+
+        2. Enter anything for the New Password and Confirm New Password (As long as they are the same) and click update password
+
+        The vulnerable SQL query becomes UPDATE User SET Password = '[Whatever password you put]' WHERE (User_ID = '[Logged in user ID]') AND (Password = '1' = '1' #)
+        SELECT User_ID, Username FROM User WHERE Email = '' OR User_ID=1 which will always
+        return the first user since User_ID=1 evaluates to true, completely bypassing authentication.
+
+
+        Notes: We use () in this in to make sure that only 1 user is changed.
+        This is so that during the demo later we don't change all passwords instead of the specific users password.
+        As such we cant use a # here at the end as that would remove the closing ) and cause an error.
+        Also note that injecting in the "new password" field will change every single users password. So show this after the main demo is done.
+
+Part C: How we have the login in process set up right now.
+        Make sure you revert all changes made to index.html from part A before presenting
+        (maybe keep the email input type to text just to show that the injection command wont work at all instead of it wont work
+        beacuse its not in the form of an email)

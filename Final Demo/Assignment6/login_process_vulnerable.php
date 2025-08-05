@@ -20,12 +20,14 @@ $result = $conn->query($sql);
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    $_SESSION['user_ID'] = $row['User_ID'];
-    $_SESSION['username'] = $row['Username'];
-    header("Location: dashboard.php");
+    $_SESSION['user_ID_VUL'] = $row['User_ID'];
+    $_SESSION['username_VUL'] = $row['Username'];
+    //print_r("Logged into account: " . $row['Username'] . " using password: " . $pass);
+    //echo $row;
+    echo "<script>alert('Logged into account: " . $row['Username'] . " using password: " . $pass . "'); window.location.href='profileVuln.html';</script>";
     exit();
 } else {
-    echo "<script>alert('Invalid email or password.'); window.location.href='index.html';</script>";
+    echo "<script>alert('Invalid email or password.'); window.location.href='loginVuln.html';</script>";
 }
 
 $conn->close();

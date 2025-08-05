@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Deck Builder - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="scrollable-page">
+
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>My Profile</h1>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <!-- Password Change -->
+            <div class="profile-section">
+                <h2>Change Password</h2>
+                <form class="profile-form" action="updateProfileVuln.php" method="POST">
+                    <div class="form-group">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" name="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" name="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirm New Password</label>
+                        <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+                    </div>
+                    <button type="submit" name="update_password" class="save-btn">Update Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
