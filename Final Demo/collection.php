@@ -50,7 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bind_param("ii", $collection_id, $card_id);
                 $stmt->execute();
             } elseif ($action == 'remove') {
-                // Remove from collection
+                // First, remove the card from user's decks
+                $remove_from_decks_query = "DELETE dc FROM Deck_Cards dc 
+                                            INNER JOIN Deck d ON dc.Deck_ID = d.Deck_ID 
+                                            WHERE d.User_ID = ? AND dc.Card_ID = ?";
+                $stmt = $conn->prepare($remove_from_decks_query);
+                $stmt->bind_param("ii", $user_id, $card_id);
+                $stmt->execute();
+                $stmt->close();
+    
+                // Then remove from collection
                 $delete_query = "DELETE FROM Collections_Cards WHERE Collection_ID = ? AND Card_ID = ?";
                 $stmt = $conn->prepare($delete_query);
                 $stmt->bind_param("ii", $collection_id, $card_id);
