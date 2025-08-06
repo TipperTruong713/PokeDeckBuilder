@@ -22,12 +22,14 @@ $searchTerm = isset($_GET['search-cards']) ? $_GET['search-cards'] : '';
 // Updated SQL to get all cards (Pokemon, Trainer, and Energy)
 $sql = "SELECT c.Card_ID, c.Card_Name, c.Rarity, c.Artist, c.Card_Type, c.Card_Image, c.Card_Description,
                pc.HP, pc.Type as Pokemon_Type, pc.Stage,
-               tc.Trainer_Card_Type
+               tc.Trainer_Card_Type,
+               ec.Energy_Card_Type
         FROM Card c
         LEFT JOIN Pokemon_Card pc ON c.Card_ID = pc.Card_ID
         LEFT JOIN Trainer_Card tc ON c.Card_ID = tc.Card_ID
+        LEFT JOIN Energy_Card ec ON c.Card_ID = ec.Card_ID
         WHERE 1=1";
-
+        
 $params = array();
 
 // Search term filter
@@ -140,16 +142,6 @@ try {
                         <option value="ultra-rare" <?php echo ($rarity == 'ultra-rare') ? 'selected' : ''; ?>>Ultra Rare</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="pack">Pack</label>
-                    <select id="pack" name="pack">
-                        <option value="">All Packs</option>
-                        <option value="base-set" <?php echo ($pack == 'base-set') ? 'selected' : ''; ?>>Base Set</option>
-                        <option value="jungle" <?php echo ($pack == 'jungle') ? 'selected' : ''; ?>>Jungle</option>
-                        <option value="fossil" <?php echo ($pack == 'fossil') ? 'selected' : ''; ?>>Fossil</option>
-                        <option value="team-rocket" <?php echo ($pack == 'team-rocket') ? 'selected' : ''; ?>>Team Rocket</option>
-                    </select>
-                </div>
                 <div class="search-group">
                     <input type="text" id="search-cards" name="search-cards" placeholder="Search by card name..." value="<?php echo htmlspecialchars($searchTerm); ?>">
                     <button type="submit" class="search-btn">Search</button>
@@ -203,6 +195,10 @@ try {
                                 <p class="card-type">
                                     Trainer - <?php echo htmlspecialchars($card['Trainer_Card_Type'] ?: 'Unknown'); ?>
                                 </p>
+                            <?php elseif ($card['Card_Type'] == 'energy'): ?>
+                                <p class="card-type">
+                                    Energy - <?php echo htmlspecialchars($card['Energy_Card_Type'] ?: 'Unknown'); ?>
+                                </p>
                             <?php else: ?>
                                 <p class="card-type"><?php echo htmlspecialchars($card['Card_Type']); ?></p>
                             <?php endif; ?>
@@ -215,13 +211,6 @@ try {
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="page-btn">Previous</button>
-            <span class="page-info">Page 1 of 1</span>
-            <button class="page-btn">Next</button>
         </div>
     </div>
 

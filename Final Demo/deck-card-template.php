@@ -24,9 +24,12 @@ if (!empty($card['Card_Image'])) {
                <?php echo htmlspecialchars($card['Stage'] ?: 'Basic'); ?></p>
         <?php elseif (strtolower($card['Card_Type']) == 'trainer'): ?>
             <p>Trainer - <?php echo htmlspecialchars($card['Trainer_Card_Type'] ?: 'Unknown'); ?></p>
+        <?php elseif (strtolower($card['Card_Type']) == 'energy'): ?>
+            <p>Energy - <?php echo htmlspecialchars($card['Energy_Card_Type'] ?: 'Unknown'); ?></p>
         <?php else: ?>
             <p><?php echo htmlspecialchars($card['Card_Type']); ?></p>
         <?php endif; ?>
+        
     </div>
     <div class="quantity-control">
         <button type="button" class="qty-btn" onclick="updateQuantity(<?php echo $card['Card_ID']; ?>, -1)">-</button>

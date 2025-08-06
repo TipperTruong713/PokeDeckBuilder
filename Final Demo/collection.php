@@ -87,14 +87,16 @@ $searchTerm = isset($_GET['search-collection']) ? $_GET['search-collection'] : '
 $sql = "SELECT c.Card_ID, c.Card_Name, c.Rarity, c.Card_Type, c.Card_Image,
                cc.Quantity_In_Collection,
                pc.HP, pc.Type as Pokemon_Type, pc.Stage,
-               tc.Trainer_Card_Type
+               tc.Trainer_Card_Type,
+               ec.Energy_Card_Type
         FROM Collection col
         JOIN Collections_Cards cc ON col.Collection_ID = cc.Collection_ID
         JOIN Card c ON cc.Card_ID = c.Card_ID
         LEFT JOIN Pokemon_Card pc ON c.Card_ID = pc.Card_ID
         LEFT JOIN Trainer_Card tc ON c.Card_ID = tc.Card_ID
+        LEFT JOIN Energy_Card ec ON c.Card_ID = ec.Card_ID
         WHERE col.User_ID = ?";
-
+        
 $params = array($user_id);
 $types = "i";
 
@@ -148,6 +150,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Deck Builder - My Collection</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="decks.css">
 </head>
 <body class="scrollable-page">
     <!-- Navigation Header -->
@@ -172,7 +175,7 @@ $conn->close();
         <div class="cards-header">
             <h1>My Collection</h1>
         </div>
-        
+
         <!-- Collection Stats -->
         <div class="collection-stats">
             <div class="stat-card">
@@ -266,6 +269,10 @@ $conn->close();
                             <?php elseif (strtolower($card['Card_Type']) == 'trainer'): ?>
                                 <p class="card-type">
                                     Trainer - <?php echo htmlspecialchars($card['Trainer_Card_Type'] ?: 'Unknown'); ?>
+                                </p>
+                            <?php elseif ($card['Card_Type'] == 'energy'): ?>
+                                <p class="card-type">
+                                    Energy - <?php echo htmlspecialchars($card['Energy_Card_Type'] ?: 'Unknown'); ?>
                                 </p>
                             <?php else: ?>
                                 <p class="card-type"><?php echo htmlspecialchars($card['Card_Type']); ?></p>

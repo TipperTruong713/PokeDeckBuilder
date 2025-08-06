@@ -124,12 +124,14 @@ if ($deck_id > 0) {
 $collection_sql = "SELECT c.Card_ID, c.Card_Name, c.Card_Type, c.Card_Image,
                    cc.Quantity_In_Collection,
                    pc.HP, pc.Type as Pokemon_Type, pc.Stage,
-                   tc.Trainer_Card_Type
+                   tc.Trainer_Card_Type,
+                   ec.Energy_Card_Type
                    FROM Collection col
                    JOIN Collections_Cards cc ON col.Collection_ID = cc.Collection_ID
                    JOIN Card c ON cc.Card_ID = c.Card_ID
                    LEFT JOIN Pokemon_Card pc ON c.Card_ID = pc.Card_ID
                    LEFT JOIN Trainer_Card tc ON c.Card_ID = tc.Card_ID
+                   LEFT JOIN Energy_Card ec ON c.Card_ID = ec.Card_ID
                    WHERE col.User_ID = ?
                    ORDER BY c.Card_Type, c.Card_Name";
 
@@ -293,9 +295,12 @@ $conn->close();
                                            <?php echo htmlspecialchars($card['Stage'] ?: 'Basic'); ?></p>
                                     <?php elseif (strtolower($card['Card_Type']) == 'trainer'): ?>
                                         <p>Trainer - <?php echo htmlspecialchars($card['Trainer_Card_Type'] ?: 'Unknown'); ?></p>
+                                    <?php elseif (strtolower($card['Card_Type']) == 'energy'): ?>
+                                        <p>Energy - <?php echo htmlspecialchars($card['Energy_Card_Type'] ?: 'Unknown'); ?></p>
                                     <?php else: ?>
                                         <p><?php echo htmlspecialchars($card['Card_Type']); ?></p>
                                     <?php endif; ?>
+                                    
                                     <span class="available-qty" data-available="<?php echo $available; ?>">
                                         Available: <?php echo $available; ?>
                                     </span>
