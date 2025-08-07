@@ -130,6 +130,11 @@ try {
                         <option value="normal" <?php echo ($pokemonType == 'normal') ? 'selected' : ''; ?>>Normal</option>
                         <option value="ice" <?php echo ($pokemonType == 'ice') ? 'selected' : ''; ?>>Ice</option>
                         <option value="ghost" <?php echo ($pokemonType == 'ghost') ? 'selected' : ''; ?>>Ghost</option>
+                        <option value="flying" <?php echo ($pokemonType == 'flying') ? 'selected' : ''; ?>>Flying</option>
+                        <option value="ground" <?php echo ($pokemonType == 'ground') ? 'selected' : ''; ?>>Ground</option>
+                        <option value="bug" <?php echo ($pokemonType == 'bug') ? 'selected' : ''; ?>>Bug</option>
+                        <option value="rock" <?php echo ($pokemonType == 'rock') ? 'selected' : ''; ?>>Rock</option>
+                        <option value="poison" <?php echo ($pokemonType == 'poison') ? 'selected' : ''; ?>>Poison</option>
                     </select>
                 </div>
                 <div class="filter-group">

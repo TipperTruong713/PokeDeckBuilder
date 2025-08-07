@@ -43,12 +43,64 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt->bind_param("ii", $collection_id, $card_id);
                 $stmt->execute();
             } elseif ($action == 'decrease') {
-                // Decrease quantity (minimum 1)
-                $update_query = "UPDATE Collections_Cards SET Quantity_In_Collection = GREATEST(Quantity_In_Collection - 1, 1) 
-                               WHERE Collection_ID = ? AND Card_ID = ?";
-                $stmt = $conn->prepare($update_query);
+                // Get current quantity in collection
+                $get_qty_query = "SELECT Quantity_In_Collection FROM Collections_Cards 
+                                 WHERE Collection_ID = ? AND Card_ID = ?";
+                $stmt = $conn->prepare($get_qty_query);
                 $stmt->bind_param("ii", $collection_id, $card_id);
                 $stmt->execute();
+                $qty_result = $stmt->get_result();
+                
+                if ($qty_result->num_rows > 0) {
+                    $current_qty = $qty_result->fetch_assoc()['Quantity_In_Collection'];
+                    
+                    if ($current_qty > 1) {
+                        // Decrease quantity in collection
+                        $update_query = "UPDATE Collections_Cards SET Quantity_In_Collection = Quantity_In_Collection - 1 
+                                       WHERE Collection_ID = ? AND Card_ID = ?";
+                        $stmt = $conn->prepare($update_query);
+                        $stmt->bind_param("ii", $collection_id, $card_id);
+                        $stmt->execute();
+                        
+                        // Now check all user's decks and update them if necessary
+                        $new_qty = $current_qty - 1;
+                        
+                        // Get all decks that have this card
+                        $deck_check_query = "SELECT dc.Deck_ID, dc.Quantity_In_Deck 
+                                           FROM Deck_Cards dc
+                                           INNER JOIN Deck d ON dc.Deck_ID = d.Deck_ID
+                                           WHERE d.User_ID = ? AND dc.Card_ID = ?";
+                        $stmt = $conn->prepare($deck_check_query);
+                        $stmt->bind_param("ii", $user_id, $card_id);
+                        $stmt->execute();
+                        $deck_result = $stmt->get_result();
+                        
+                        while ($deck_row = $deck_result->fetch_assoc()) {
+                            $deck_id = $deck_row['Deck_ID'];
+                            $qty_in_deck = $deck_row['Quantity_In_Deck'];
+                            
+                            // If deck has more cards than available in collection, update it
+                            if ($qty_in_deck > $new_qty) {
+                                if ($new_qty == 0) {
+                                    // Remove card from deck entirely
+                                    $remove_query = "DELETE FROM Deck_Cards WHERE Deck_ID = ? AND Card_ID = ?";
+                                    $stmt2 = $conn->prepare($remove_query);
+                                    $stmt2->bind_param("ii", $deck_id, $card_id);
+                                    $stmt2->execute();
+                                    $stmt2->close();
+                                } else {
+                                    // Update quantity in deck to match collection
+                                    $update_deck_query = "UPDATE Deck_Cards SET Quantity_In_Deck = ? 
+                                                        WHERE Deck_ID = ? AND Card_ID = ?";
+                                    $stmt2 = $conn->prepare($update_deck_query);
+                                    $stmt2->bind_param("iii", $new_qty, $deck_id, $card_id);
+                                    $stmt2->execute();
+                                    $stmt2->close();
+                                }
+                            }
+                        }
+                    }
+                }
             } elseif ($action == 'remove') {
                 // First, remove the card from user's decks
                 $remove_from_decks_query = "DELETE dc FROM Deck_Cards dc 
@@ -70,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Get collection tracker
+// Get collection stats
 $stats_query = "SELECT 
                 COUNT(DISTINCT cc.Card_ID) as unique_cards,
                 SUM(cc.Quantity_In_Collection) as total_cards
@@ -289,7 +341,8 @@ $conn->close();
                             
                             <form method="POST" action="collection.php" class="quantity-controls">
                                 <input type="hidden" name="card_id" value="<?php echo $card['Card_ID']; ?>">
-                                <button type="submit" name="action" value="decrease" class="qty-btn minus">-</button>
+                                <button type="submit" name="action" value="decrease" class="qty-btn minus" 
+                                        <?php echo ($card['Quantity_In_Collection'] <= 1) ? 'disabled' : ''; ?>>-</button>
                                 <span class="qty-display"><?php echo $card['Quantity_In_Collection']; ?></span>
                                 <button type="submit" name="action" value="increase" class="qty-btn plus">+</button>
                             </form>

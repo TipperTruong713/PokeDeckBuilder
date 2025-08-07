@@ -162,7 +162,7 @@ $conn->close();
                         <div class="deck-types">
                             <?php 
                             $types = explode(',', $deck['pokemon_types']);
-                            foreach (array_slice($types, 0, 3) as $type): 
+                            foreach (array_slice($types, 0, 5) as $type): 
                             ?>
                                 <span class="type-badge <?php echo strtolower(trim($type)); ?>">
                                     <?php echo htmlspecialchars(trim($type)); ?>

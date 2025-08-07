@@ -105,15 +105,20 @@
 .type-badge.water { background: #3b82f6; }
 .type-badge.grass { background: #10b981; }
 .type-badge.electric { background: #fbbf24; color: #1a1a2e; }
-.type-badge.psychic { background: #a855f7; }
+.type-badge.psychic { background: #ed4277; }
 .type-badge.fighting { background: #f97316; }
 .type-badge.dark { background: #374151; }
 .type-badge.steel { background: #6b7280; }
-.type-badge.fairy { background: #ec4899; }
-.type-badge.dragon { background: #8b5cf6; }
+.type-badge.fairy { background: #ee70ee; }
+.type-badge.dragon { background: #192794; }
 .type-badge.normal { background: #9ca3af; }
 .type-badge.ice { background: #67e8f9; color: #1a1a2e; }
-.type-badge.ghost { background: #7c3aed; }
+.type-badge.ghost { background: #704070; }
+.type-badge.flying { background: #81b9f2; }
+.type-badge.ground { background: #905223; }
+.type-badge.bug { background: #91a11a; }
+.type-badge.rock { background: #aea981; }
+.type-badge.poison { background: #9241cc; }
 
 /* Deck Stats */
 .deck-stats {
